@@ -1,0 +1,80 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+<form class="example-form" (submit)="calk(price.value, volume.value, engine.value, age.value)">
+  <div>
+  <mat-form-field class="example-full-width">
+    <input matInput type="number" placeholder="Вартість авто" value="" #price>
+    <span matSuffix>$&nbsp;</span>
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field class="example-full-width">
+      <mat-label>Об'єм двигуна</mat-label>
+      <mat-select #volume>
+        <mat-option *ngFor = "let volume of volumes" value="{{volume }}">
+           {{ volume }}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+<div>
+    <mat-form-field class="example-full-width">
+        <mat-label>Тип двигуна</mat-label>
+        <mat-select #engine>
+          <mat-option *ngFor = "let engine of engines " value="{{engine.name}}">
+              {{ engine.name }}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+<div>
+<mat-form-field class="example-full-width">
+  <mat-label>Вік автомобіля</mat-label>
+  <mat-select #age>
+      <mat-option *ngFor = "let age of ages" value="{{age}}">
+          {{age}}
+        </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+
+<button mat-raised-button color="primary" type="submit">Розрахувати</button>
+
+</form>
+</mat-grid-tile>
+
+<mat-grid-tile > 
+
+  <div>
+          <div class="values">
+              <div class="titel">ПДВ:</div>
+              <div class="value">{{ results.car.pdv | number:'2.2-2'}}</div>
+          </div>
+          <div class="values">
+              <div class="titel"> Мито:</div>
+              <div class="value">{{ results.car.myto | number:'2.2-2'}}</div>
+          </div>
+          <div class="values">
+              <div class="titel">Акцизний збір:</div>
+              <div class="value">{{ results.car.zbir | number:'2.2-2'}}</div>
+          </div>
+          <div class="values">
+              <div class="titel">Всього митних платежів:</div>
+              <div class="value">{{ results.car.vsogo | number:'2.2-2'}}</div>
+          </div>
+          <div class="values">
+              <div class="titel">Вартість авто після розмитнення:</div>
+              <div class="value">{{ results.car.sum | number:'2.2-2'}}</div>
+          </div>
+
+        
+      </div>
+      
+   
+   
+     
+  
+            
+    
+    </mat-grid-tile>
+</mat-grid-list>
