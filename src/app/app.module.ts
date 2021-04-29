@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MaterialModule } from './material.module';
 import { from } from 'rxjs';
 import {  BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,15 +27,15 @@ import 'hammerjs';
     ElectrocarComponent,
     BusComponent,
     TruckComponent,
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]
 })
